@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+<h1>Inscriptos</h1>
+<h2>Categoria Masculino</h2>
+            <table id="Masculino" style="width: 100%; border: 1px solid black">
+                <thead>
+                    <tr role="row">
+                        <th rowspan="1" colspan="1" style="width: 150px;">Nombre</th>
+                        <th rowspan="1" colspan="1" style="width: 109px;">Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+<h2>Categoria Femenina</h2>
+            <table id="Femenino" style="width: 100%; border: 1px solid black">
+                <thead>
+                    <tr role="row">
+                        <th rowspan="1" colspan="1" style="width: 150px;">Nombre</th>
+                        <th rowspan="1" colspan="1" style="width: 109px;">Telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script type='text/javascript'>    
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1ZqpdqBe95PqtjDk594bw-Mq1Ri2XyprFM8CiSgKBcqI/edit?usp=sharing';
+
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
+
+  function showInfo(data, tabletop) {
+    //alert('Successfully processed!');
+    console.log(data);
+	for (var i = 0; i < data.length; i++) {
+		var e = data[i];
+   var t1= "<tr><td>" + e['Nombre y Apellido'] + "</td><td>" + e['Teléfono']+ "</td></tr>"
+    			$("#"+ e['Categoría']).append(t1);
+
+	}
+  } 
+
+  window.addEventListener('DOMContentLoaded', init)
+</script>
+</body>
+</html>
